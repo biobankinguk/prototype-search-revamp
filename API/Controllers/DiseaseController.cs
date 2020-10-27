@@ -31,13 +31,13 @@ namespace API.Controllers
         private static readonly DonorModel donorModel1 = new DonorModel
         {
             Sex = "Female",
-            Age = "> 40 Years",
+            Age = "Adult (> 40 years)",
             DonorCount = "101-500"
         };
         private static readonly DonorModel donorModel2 = new DonorModel
         {
             Sex = "Male",
-            Age = "> 40 Years",
+            Age = "Adult (> 40 years)",
             DonorCount = "500-1000"
         };
 
