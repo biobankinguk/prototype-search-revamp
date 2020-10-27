@@ -8,7 +8,7 @@ namespace API.Models
     public class DonorModel
     {
         public string Sex { get; set; }
-        public int Age { get; set; }
+        public string Age { get; set; }
         public string DonorCount { get; set; }
     }
 }
