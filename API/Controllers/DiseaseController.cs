@@ -28,23 +28,34 @@ namespace API.Controllers
             "DNA", "RNA", "Plasma", "Serum", "Tissue", "Whole blood"
         };
 
-        private static readonly DonorModel donorModel = new DonorModel
+        private static readonly DonorModel donorModel1 = new DonorModel
         {
             Sex = "Female",
             Age = "> 40 Years",
             DonorCount = "101-500"
         };
+        private static readonly DonorModel donorModel2 = new DonorModel
+        {
+            Sex = "Male",
+            Age = "> 40 Years",
+            DonorCount = "500-1000"
+        };
+
 
         [HttpGet]
         public DiseaseModel Get()
         {
+            var donorModels = new List<DonorModel>();
+            donorModels.Add(donorModel1);
+            donorModels.Add(donorModel2);
+
             return new DiseaseModel
             {
                 DiseaseTerm = "Malignant tumor of breast",
                 Biobank = "Wales cancer bank",
                 AssociatedData = associatedData,
                 SampleTypes = sampleTypes,
-                Donor = donorModel
+                Donor = donorModels
             };
 
         }
