@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\JoeLavagna\\Documents\\Projects\\biobanks.searchRevamp\\SearchRevampReact\\SearchRevampReact.csproj": {}
+    "C:\\Users\\JoeLavagna\\Documents\\Projects\\biobanks.searchRevamp\\API\\SearchRevampReact.csproj": {}
   },
   "projects": {
-    "C:\\Users\\JoeLavagna\\Documents\\Projects\\biobanks.searchRevamp\\SearchRevampReact\\SearchRevampReact.csproj": {
+    "C:\\Users\\JoeLavagna\\Documents\\Projects\\biobanks.searchRevamp\\API\\SearchRevampReact.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\JoeLavagna\\Documents\\Projects\\biobanks.searchRevamp\\SearchRevampReact\\SearchRevampReact.csproj",
+        "projectUniqueName": "C:\\Users\\JoeLavagna\\Documents\\Projects\\biobanks.searchRevamp\\API\\SearchRevampReact.csproj",
         "projectName": "SearchRevampReact",
-        "projectPath": "C:\\Users\\JoeLavagna\\Documents\\Projects\\biobanks.searchRevamp\\SearchRevampReact\\SearchRevampReact.csproj",
+        "projectPath": "C:\\Users\\JoeLavagna\\Documents\\Projects\\biobanks.searchRevamp\\API\\SearchRevampReact.csproj",
         "packagesPath": "C:\\Users\\JoeLavagna\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\JoeLavagna\\Documents\\Projects\\biobanks.searchRevamp\\SearchRevampReact\\obj\\",
+        "outputPath": "C:\\Users\\JoeLavagna\\Documents\\Projects\\biobanks.searchRevamp\\API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\JoeLavagna\\AppData\\Roaming\\NuGet\\NuGet.Config",

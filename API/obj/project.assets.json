@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\JoeLavagna\\Documents\\Projects\\biobanks.searchRevamp\\SearchRevampReact\\SearchRevampReact.csproj",
-      "projectName": "SearchRevampReact",
-      "projectPath": "C:\\Users\\JoeLavagna\\Documents\\Projects\\biobanks.searchRevamp\\SearchRevampReact\\SearchRevampReact.csproj",
+      "projectUniqueName": "C:\\Users\\JoeLavagna\\Documents\\Projects\\biobanks.searchRevamp\\API\\API.csproj",
+      "projectName": "API",
+      "projectPath": "C:\\Users\\JoeLavagna\\Documents\\Projects\\biobanks.searchRevamp\\API\\API.csproj",
       "packagesPath": "C:\\Users\\JoeLavagna\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\JoeLavagna\\Documents\\Projects\\biobanks.searchRevamp\\SearchRevampReact\\obj\\",
+      "outputPath": "C:\\Users\\JoeLavagna\\Documents\\Projects\\biobanks.searchRevamp\\API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\JoeLavagna\\AppData\\Roaming\\NuGet\\NuGet.Config",
