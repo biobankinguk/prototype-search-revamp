@@ -21,7 +21,7 @@ const Header = props => {
       wrap="wrap"
       padding="1.5rem"
       bg="white.500"
-      borderBottom="2px"
+      borderBottom="1px"
       color="black"
       ma
       {...props}
@@ -44,6 +44,7 @@ const Header = props => {
         </svg>
       </Box>
     <Stack spacing={8}>
+      <Flex>
       <Box
         display={{ sm: show ? "block" : "none", md: "block" }}
         mt={{ base: 4, md: 0 }}
@@ -57,12 +58,22 @@ const Header = props => {
           </InputRightElement>
       </InputGroup>
     </Box>
+    <ButtonGroup spacing={4} ml="1.5rem">
+          <Button leftIcon="star" variantColor="black" variant="outline" size="lg">
+            My List
+          </Button>
+          <Button leftIcon="arrow-forward" variantColor="black" variant="outline" size="lg">
+            My Account
+          </Button>
+        </ButtonGroup>
+
+    </Flex>
 
     <Box
         display={{ sm: show ? "block" : "none", md: "block" }}
         mt={{ base: 4, md: 0 }}
       >
-      <ButtonGroup spacing={10}>
+      <ButtonGroup spacing={20}>
         <Button variantColor="black" variant="link">
           Home
         </Button>
