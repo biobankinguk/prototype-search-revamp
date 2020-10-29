@@ -1,6 +1,7 @@
 import React from "react";
-import logo from './images/logo.jpg'
-import { Box, Heading, Flex, Text, Button, Image, Input, InputGroup, InputRightAddon, InputRightElement } from "@chakra-ui/core";
+import logo from './images/logo.jpg';
+import { Link, Icon, Stack, Box, Heading, Flex, Text, Button, Image, Input, InputGroup, InputRightAddon, InputRightElement, ButtonGroup } from "@chakra-ui/core";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const MenuItems = ({ children }) => (
   <Text mt={{ base: 4, md: 0 }} mr={6} display="block">
@@ -42,30 +43,47 @@ const Header = props => {
           <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
         </svg>
       </Box>
-
-      <Box
-        display={{ sm: show ? "block" : "none", md: "flex" }}
-        width={{ sm: "full", md: "auto" }}
-        alignItems="center"
-        flexGrow={1}
-      >
-        <MenuItems>Docs</MenuItems>
-        <MenuItems>Examples</MenuItems>
-        <MenuItems>Blog</MenuItems>
-      </Box>
+    <Stack spacing={8}>
       <Box
         display={{ sm: show ? "block" : "none", md: "block" }}
         mt={{ base: 4, md: 0 }}
       >
-      <InputGroup size="md">
-          <Input pr="4.5rem" placeholder="Search Collections"/>
-          <InputRightElement width="4.5rem">
-            <Button size="md">
+      <InputGroup size="lg">
+          <Input pr="20rem" placeholder="Search for samples"/>
+          <InputRightElement width="5rem">
+            <Button size="lg" variant="solid">
             Search
             </Button>
           </InputRightElement>
       </InputGroup>
     </Box>
+
+    <Box
+        display={{ sm: show ? "block" : "none", md: "block" }}
+        mt={{ base: 4, md: 0 }}
+      >
+      <ButtonGroup spacing={10}>
+        <Button variantColor="black" variant="link">
+          Home
+        </Button>
+        <Button variantColor="black" variant="link">
+          Directory
+        </Button>
+        <Button variantColor="black" variant="link">
+          Help and support
+        </Button>
+        <Button variantColor="black" variant="link">
+          News
+        </Button>
+        <Button variantColor="black" variant="link">
+          About UKCRK
+        </Button>
+        <Button variantColor="black" variant="link">
+          Contact us
+        </Button>
+      </ButtonGroup>
+      </Box>
+    </Stack>
 
 
     </Flex>
