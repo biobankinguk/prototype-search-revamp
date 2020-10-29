@@ -1,5 +1,6 @@
 import React from "react";
-import { Box, Heading, Flex, Text, Button } from "@chakra-ui/core";
+import logo from './images/logo.jpg'
+import { Box, Heading, Flex, Text, Button, Image, Input, InputGroup, InputRightAddon, InputRightElement } from "@chakra-ui/core";
 
 const MenuItems = ({ children }) => (
   <Text mt={{ base: 4, md: 0 }} mr={6} display="block">
@@ -7,7 +8,6 @@ const MenuItems = ({ children }) => (
   </Text>
 );
 
-// Note: This code could be better, so I'd recommend you to understand how I solved and you could write yours better :)
 const Header = props => {
   const [show, setShow] = React.useState(false);
   const handleToggle = () => setShow(!show);
@@ -19,14 +19,16 @@ const Header = props => {
       justify="space-between"
       wrap="wrap"
       padding="1.5rem"
-      bg="teal.500"
-      color="white"
+      bg="white.500"
+      borderBottom="2px"
+      color="black"
+      ma
       {...props}
+      
     >
+      
       <Flex align="center" mr={5}>
-        <Heading as="h1" size="lg" letterSpacing={"-.1rem"}>
-          Chakra UI
-        </Heading>
+        <Image src={logo}></Image>
       </Flex>
 
       <Box display={{ base: "block", md: "none" }} onClick={handleToggle}>
@@ -51,16 +53,24 @@ const Header = props => {
         <MenuItems>Examples</MenuItems>
         <MenuItems>Blog</MenuItems>
       </Box>
-
       <Box
         display={{ sm: show ? "block" : "none", md: "block" }}
         mt={{ base: 4, md: 0 }}
       >
-        <Button bg="transparent" border="1px">
-          Create account
-        </Button>
-      </Box>
+      <InputGroup size="md">
+          <Input pr="4.5rem" placeholder="Search Collections"/>
+          <InputRightElement width="4.5rem">
+            <Button size="md">
+            Search
+            </Button>
+          </InputRightElement>
+      </InputGroup>
+    </Box>
+
+
     </Flex>
+
+
   );
 };
 
