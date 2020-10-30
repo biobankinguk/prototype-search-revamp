@@ -25,7 +25,7 @@ const phantomStyle = {
   width: "100%"
 };
 
-function Footer({ children }) {
+const Footer = ({ children }) => {
   return (
     <div>
       <div style={phantomStyle} />

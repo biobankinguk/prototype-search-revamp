@@ -36,7 +36,7 @@ const Header = props => {
       <InputGroup size="lg">
           <Input pr="20rem" placeholder="Search for samples"/>
           <InputRightElement width="5rem">
-          <Button variantColor="gray" variant="solid" size="lg">
+          <Button bg="#808080" variant="solid" color="white" _hover={{ bg: "#4d4d4d" }}  size="lg">
               Search
           </Button>
           </InputRightElement>

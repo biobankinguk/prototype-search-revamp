@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Checkbox, CheckboxGroup, Flex, Heading, Text, Box, Stack } from "@chakra-ui/core"
+import { Checkbox, Grid, Flex, Heading, Text, Box, Stack, Button } from "@chakra-ui/core"
 
 function Feature({ title, subtitle, desc, ...rest }) {
     return (
@@ -11,25 +11,22 @@ function Feature({ title, subtitle, desc, ...rest }) {
     );
   }
 
-function Facets() {
+const Facets = () => {
     return (
-      <Stack spacing={8}>
-        <Feature
-          title="Sample Details"
-          subtitle="Sample Type"
-          desc="API Content"
+        <div>
+            <Flex padding="10px">
+            <Box bg="#EBEBEB" height="300px">
+                <Flex justify="center" mt="20px" padding="10px">
+                    <Stack spacing={5}>
+                        <Text fontSize="4xl">Sample Details</Text>
+                        <Text fontSize="xl">Sample Type</Text>
 
-        />
-        <Feature
-          title="Donor information"
-          subtitle="Age"
-          desc="API Content"
-        />
-        <Feature
-          subtitle="Sex"
-          desc="API Content"
-        />
-      </Stack>
+                    </Stack>    
+                </Flex>
+            </Box> 
+            </Flex>   
+
+        </div>
     );
   }
 
