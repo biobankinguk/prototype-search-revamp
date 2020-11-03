@@ -8,8 +8,7 @@ namespace API.Models
     public class FacetModel
     {
         public SampleDetailsModel SampleDetails { get; set; }
-        public string[] Age { get; set; }
-        public string[] Sex { get; set; }
-        public string[] ConsentRestrictions { get; set; }
+        public DonorInfoModel DonorInformation { get; set; }
+        public ConsentModel ConsentModel { get; set; }
     }
 }

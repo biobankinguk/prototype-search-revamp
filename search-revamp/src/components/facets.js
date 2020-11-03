@@ -11,6 +11,7 @@ function Feature({ title, subtitle, desc, ...rest }) {
     );
   }
 
+
 const Facets = () => {
     return (
         <div>

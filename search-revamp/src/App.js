@@ -5,6 +5,7 @@ import Samples from "./components/samples";
 import Footer from "./components/footer";
 import Facets from "./components/facets";
 import Splash from "./components/indexSplash";
+import Api from "./components/api";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <CSSReset />
       <Header />
       {/* <Splash /> */}
+      <Api />
       <Facets />
       <Footer />
     

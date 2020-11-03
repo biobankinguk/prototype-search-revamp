@@ -50,15 +50,24 @@ namespace API.Controllers
 
         };
 
+        private static readonly DonorInfoModel donorInfoModel = new DonorInfoModel
+        {
+            Age = ages,
+            Sex = sex
+        };
+        private static readonly ConsentModel consentModel = new ConsentModel
+        {
+            ConsentRestrictions = consentRestrictions
+        };
+
 
         [HttpGet]
         public FacetModel Get()
         {
             return new FacetModel
             {
-                ConsentRestrictions = consentRestrictions,
-                Age = ages,
-                Sex = sex,
+                ConsentModel = consentModel,
+                DonorInformation = donorInfoModel,
                 SampleDetails = sampleDetailsModel
             };
 
