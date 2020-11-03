@@ -43,13 +43,14 @@ namespace API.Controllers
 
 
         [HttpGet]
-        public DiseaseModel Get()
+        public List<DiseaseModel> Get()
         {
+            var list = new List<DiseaseModel>();
             var donorModels = new List<DonorModel>();
             donorModels.Add(donorModel1);
             donorModels.Add(donorModel2);
 
-            return new DiseaseModel
+            var model = new DiseaseModel
             {
                 DiseaseTerm = "Malignant tumor of breast",
                 Biobank = "Wales cancer bank",
@@ -57,6 +58,8 @@ namespace API.Controllers
                 SampleTypes = sampleTypes,
                 Donor = donorModels
             };
+            list.Add(model);
+            return list;
 
         }
         

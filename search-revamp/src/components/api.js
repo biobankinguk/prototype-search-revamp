@@ -5,35 +5,43 @@ class Data extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            facets: [],
+            items: [],
             isLoaded: false,
-  
         }
     }
+
     componentDidMount() {
-        fetch('https://api20201029163207.azurewebsites.net/facet')
+        fetch ('https://jsonplaceholder.typicode.com/users')
         .then(res => res.json())
         .then(json => {
             this.setState({
                 isLoaded: true,
-                items: json,
+                items: json, 
             })
         });
     }
-  
+
     render() {
         var { isLoaded, items } = this.state;
-        if (!isLoaded) {
-            return <div>Loading....</div>;
+        if (!isLoaded){
+            return <div>Loading...</div>
         }
         else {
             return (
                 <div className="Data">
-                    Data has been loaded.
-                </div>
-            );
-        }
+                    <ul>
+                        {items.map(item => (
+                            <li key={item.id}>
+                                Name: {item.name} 
+                            </li>
+                        ))};
+                    </ul>
 
+                </div>
+            )
+        }
     }
+
+
 }
 export default Data;

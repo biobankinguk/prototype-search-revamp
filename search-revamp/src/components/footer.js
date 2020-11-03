@@ -37,16 +37,13 @@ const Footer = ({ children }) => {
 export default class FooterComponent extends Component {
     render() {
         return (
-
             <Footer>
-           
                 <Grid templateColumns="repeat(3, 1fr)" >
                     <Image src={uniLogo}/>  
                     <Image src={adacLogo}/>
                     <Image src={uclLogo}/>
                 </Grid>
-
-
+            
                 <Grid templateColumns="repeat(3, 1fr)" padding="20px">
                 <Heading as="h4" size="md">
                    Contact us

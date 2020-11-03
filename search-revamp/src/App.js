@@ -13,8 +13,8 @@ function App() {
       <CSSReset />
       <Header />
       {/* <Splash /> */}
+      {/* <Facets /> */}
       <Api />
-      <Facets />
       <Footer />
     
     </ThemeProvider>

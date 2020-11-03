@@ -62,14 +62,18 @@ namespace API.Controllers
 
 
         [HttpGet]
-        public FacetModel Get()
+        public List<FacetModel> Get()
         {
-            return new FacetModel
+            var list = new List<FacetModel>();
+            var model = new FacetModel
             {
                 ConsentModel = consentModel,
                 DonorInformation = donorInfoModel,
                 SampleDetails = sampleDetailsModel
             };
+            list.Add(model);
+            return list;
+
 
         }
 
