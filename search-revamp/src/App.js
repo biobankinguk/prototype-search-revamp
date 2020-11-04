@@ -5,7 +5,7 @@ import Samples from "./components/samples";
 import Footer from "./components/footer";
 import Facets from "./components/facets";
 import Splash from "./components/indexSplash";
-import Api from "./components/api";
+import FacetsApi from "./components/API/facetsApi";
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
       <Header />
       {/* <Splash /> */}
       {/* <Facets /> */}
-      <Api />
+      <FacetsApi />
       <Footer />
     
     </ThemeProvider>

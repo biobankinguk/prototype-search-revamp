@@ -67,9 +67,16 @@ namespace API.Controllers
             var list = new List<FacetModel>();
             var model = new FacetModel
             {
+                //Return Objects
+                /*
                 ConsentModel = consentModel,
                 DonorInformation = donorInfoModel,
-                SampleDetails = sampleDetailsModel
+                SampleDetails = sampleDetailsModel */
+                ConsentRestrictions = consentRestrictions,
+                BodySystemArea = bodyAreas,
+                SampleType = sampleTypes,
+                Age = ages,
+                Sex = sex
             };
             list.Add(model);
             return list;
