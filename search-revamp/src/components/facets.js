@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { useFacet } from "./api/facetsApi";
 import { Checkbox, Grid, Flex, Heading, Text, Box, Stack, Button } from "@chakra-ui/core"
 
 function Feature({ title, subtitle, desc, ...rest }) {
@@ -11,6 +12,20 @@ function Feature({ title, subtitle, desc, ...rest }) {
     );
   }
 
+  /*
+function GetFacets () {
+    const { user, isLoading, isError } = useFacet()
+    return (
+        <div>
+
+        </div>
+    )
+}*/
+
+const GetFacets = () => {
+    const res = useFacet()
+    return <div>{JSON.stringify(res)}</div>
+}
 
 const Facets = () => {
     return (
@@ -35,6 +50,7 @@ export default class FacetsComponent extends Component {
     render() {
         return (
             <Flex>
+                <GetFacets />
                 <Facets />
             </Flex>
         )
