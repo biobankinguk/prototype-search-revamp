@@ -12,6 +12,14 @@ function Feature({ title, subtitle, desc, ...rest }) {
     );
   }
 
+const CheckTest = props => {
+    return (
+        <li>
+            <div>{props}</div>
+        </li>
+    )
+}
+
 const GetFacets = () => {
     const res = useFacet()
     const items = []
@@ -21,15 +29,22 @@ const GetFacets = () => {
     }
     else {
         {res.facets.map(item => {
-            for (const test of item.age){
-                items.push(test)
+            for (const test of item.bodySystemArea){
+                items.push(
+                    <Stack padding="3px">
+                        <Checkbox isChecked="true">{test}</Checkbox>
+                    </Stack>
+                    
+                )
             }
         })}
-        return (
-            <div>{items[3]}</div>
-        )
+        return <div>{items}</div>
+            
+        
     }
 }
+
+
 
 
 const Facets = () => {
@@ -38,14 +53,13 @@ const Facets = () => {
             <div>
                 <Stack spacing={5}>
                 <Flex padding="10px">
-                <Box bg="#EBEBEB" height="300px">
-                    <Flex mt="20px" padding="10px" width="300px">
-                        <Stack spacing={5}>
+                <Box bg="#EBEBEB" >
+                         <Stack spacing={5}>
                             <Text fontSize="3xl">Sample Details</Text>
                             <Text fontSize="xl">Sample Type</Text>
                             {GetFacets()}
                         </Stack>    
-                    </Flex>
+                    
                 </Box> 
                 </Flex>
                 <Flex padding="10px">
