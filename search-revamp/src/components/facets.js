@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React, { Component, Suspense } from "react";
 import { useFacet } from "./api/facetsApi";
-import { Checkbox, Grid, Flex, Heading, Text, Box, Stack, Button } from "@chakra-ui/core"
+import { Checkbox, Grid, Flex, Heading, Text, Box, Stack, Button, Spinner, MenuItem } from "@chakra-ui/core"
 
 function Feature({ title, subtitle, desc, ...rest }) {
     return (
@@ -12,45 +12,74 @@ function Feature({ title, subtitle, desc, ...rest }) {
     );
   }
 
-  /*
-function GetFacets () {
-    const { user, isLoading, isError } = useFacet()
-    return (
-        <div>
-
-        </div>
-    )
-}*/
-
 const GetFacets = () => {
     const res = useFacet()
-    return <div>{JSON.stringify(res)}</div>
+    const items = []
+    if (res.isLoading) {
+        //Render Loading State
+        return <Spinner />
+    }
+    else {
+        {res.facets.map(item => {
+            for (const test of item.age){
+                items.push(test)
+            }
+        })}
+        return (
+            <div>{items[3]}</div>
+        )
+    }
 }
 
+
 const Facets = () => {
-    return (
-        <div>
-            <Flex padding="10px">
-            <Box bg="#EBEBEB" height="300px">
-                <Flex justify="center" mt="20px" padding="10px">
-                    <Stack spacing={5}>
-                        <Text fontSize="4xl">Sample Details</Text>
-                        <Text fontSize="xl">Sample Type</Text>
-
-                    </Stack>    
+    const res = useFacet()
+        return (
+            <div>
+                <Stack spacing={5}>
+                <Flex padding="10px">
+                <Box bg="#EBEBEB" height="300px">
+                    <Flex mt="20px" padding="10px" width="300px">
+                        <Stack spacing={5}>
+                            <Text fontSize="3xl">Sample Details</Text>
+                            <Text fontSize="xl">Sample Type</Text>
+                            {GetFacets()}
+                        </Stack>    
+                    </Flex>
+                </Box> 
                 </Flex>
-            </Box> 
-            </Flex>   
-
-        </div>
+                <Flex padding="10px">
+                <Box bg="#EBEBEB" height="300px">
+                    <Flex mt="20px" padding="10px"  width="300px">
+                        <Stack spacing={5}>
+                            <Text fontSize="3xl">Donor Information</Text>
+                            <Text fontSize="xl">Age</Text>
+                        </Stack>    
+                    </Flex>
+                </Box> 
+                </Flex>
+                <Flex padding="10px">
+                <Box bg="#EBEBEB" height="300px">
+                    <Flex mt="20px" padding="10px"  width="300px">
+                        <Stack spacing={5}>
+                            <Text fontSize="3xl">Consent</Text>
+                            <Text fontSize="xl">Restrictions</Text>
+                        </Stack>    
+                    </Flex>
+                </Box> 
+                </Flex>
+                </Stack>   
+                
+            </div>
     );
   }
 
+
 export default class FacetsComponent extends Component {
     render() {
+
         return (
             <Flex>
-                <GetFacets />
                 <Facets />
             </Flex>
         )
