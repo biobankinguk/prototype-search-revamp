@@ -17,7 +17,7 @@ function App() {
       {/* <Splash /> */}
       {/* Stacks the components horizontally */}
       <Stack isInline spacing={5}>
-      <Facets />
+        <Facets />
         <Samples />
       </Stack>
 
