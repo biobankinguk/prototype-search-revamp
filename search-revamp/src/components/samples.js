@@ -12,25 +12,18 @@ function Feature({ title, desc, ...rest }) {
 
 function Samples() {
     return (
-      <Stack spacing={8}>
-        <Feature
-          title="Disease Name"
-          desc="Wales cancer bank"
-        />
-        <Feature
-          title="Disease Name"
-          desc="Cancer Group CTR Cardiff trials"
-        />
-      </Stack>
+      <Flex padding="30px">
+                <Box bg="grey" width="1000px" height="300px" >
+                         <Stack spacing={3}>
+                            <Text fontSize="3xl">Sample Details</Text>
+                            <Text fontSize="xl">Sample Type</Text>
+                        </Stack> 
+                        
+                    
+                </Box> 
+                </Flex>
+      
     );
   }
 
-export default class SamplesComponent extends Component {
-    render() {
-        return (
-            <Flex>
-                <Samples />
-            </Flex>
-        )
-    }
-}
+export default Samples

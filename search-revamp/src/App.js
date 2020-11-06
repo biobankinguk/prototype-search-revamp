@@ -1,4 +1,4 @@
-import { ThemeProvider, CSSReset, Heading, Flex } from "@chakra-ui/core"
+import { ThemeProvider, CSSReset, Heading, Flex, Stack } from "@chakra-ui/core"
 import './App.css';
 import Header from "./components/header";
 import Samples from "./components/samples";
@@ -14,8 +14,14 @@ function App() {
       <CSSReset />
       <Header />
       {/* <Splash /> */}
-      <Facets />
-      <Footer />
+      {/* Stacks the components horizontally */}
+      <Stack isInline spacing={5}>
+        <Facets />
+        <Samples />
+      </Stack>
+
+      
+      {/* <Footer /> */}
     
     </ThemeProvider>
   );
