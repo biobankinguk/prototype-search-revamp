@@ -2,90 +2,117 @@ import React, { Component, Suspense } from "react";
 import { useFacet } from "./api/facetsApi";
 import { Checkbox, Grid, Flex, Heading, Text, Box, Stack, Button, Spinner, MenuItem } from "@chakra-ui/core"
 
-function Feature({ title, subtitle, desc, ...rest }) {
-    return (
-    <Box p={5} shadow="md" borderWidth="1px" {...rest}>
-        <Heading fontSize="xl">{title}</Heading>
-        <Heading fontSize="lg" mt="15px">{subtitle}</Heading>
-        <Checkbox defaultIsChecked mt={4}>{desc}</Checkbox>
-    </Box>
-    );
-  }
-
-const CheckTest = props => {
-    return (
-        <li>
-            <div>{props}</div>
-        </li>
-    )
-}
-
 const GetFacets = () => {
     const res = useFacet()
-    const items = []
+    const bodyList = []
+    const sampleList = []
+    const ageList = []
+    const sexList = []
+    const consentList = []
+    const data = { res, bodyList, sampleList, ageList, sexList, consentList }
     if (res.isLoading) {
-        //Render Loading State
-        return <Spinner />
+
+        return null
     }
     else {
         {res.facets.map(item => {
-            for (const test of item.bodySystemArea){
-                items.push(
+            for (const body of item.bodySystemArea){
+                bodyList.push(
                     <Stack padding="3px">
-                        <Checkbox isChecked="true">{test}</Checkbox>
+                        <Checkbox >{body}</Checkbox>
                     </Stack>
-                    
                 )
             }
-        })}
-        return <div>{items}</div>
+            for (const sample of item.sampleType){
+                sampleList.push(
+                    <Stack padding="3px">
+                        <Checkbox>{sample}</Checkbox>
+                    </Stack>
+                )
+            }
+            for (const age of item.age){
+                ageList.push(
+                    <Stack padding="3px">
+                        <Checkbox>{age}</Checkbox>
+                    </Stack>
+                )
+            }
+            for (const sex of item.sex){
+                sexList.push(
+                    <Stack padding="3px">
+                        <Checkbox>{sex}</Checkbox>
+                    </Stack>
+                )
+            }
+            for (const consent of item.consentRestrictions){
+                consentList.push(
+                    <Stack padding="3px">
+                        <Checkbox>{consent}</Checkbox>
+                    </Stack>
+                )
+            }
+        })}}
+        
+        return data
             
         
     }
-}
+
 
 
 
 
 const Facets = () => {
-    const res = useFacet()
+    const loaded = GetFacets()
+    if (loaded == null) {
+        //Render Loading State
+        return (
+            <Flex padding="30px">
+                <Spinner />
+                <Flex marginLeft="10px">Loading Facet Data</Flex>
+            </Flex>
+            
+        )
+    }
+    else {
         return (
             <div>
                 <Stack spacing={5}>
-                <Flex padding="10px">
-                <Box bg="#EBEBEB" >
-                         <Stack spacing={5}>
+                <Flex padding="20px">
+                <Box bg="white" >
+                         <Stack spacing={3}>
                             <Text fontSize="3xl">Sample Details</Text>
                             <Text fontSize="xl">Sample Type</Text>
-                            {GetFacets()}
-                        </Stack>    
+                            <div>{loaded.bodyList}</div>   
+                        </Stack> 
+                        
                     
                 </Box> 
                 </Flex>
-                <Flex padding="10px">
-                <Box bg="#EBEBEB" height="300px">
-                    <Flex mt="20px" padding="10px"  width="300px">
-                        <Stack spacing={5}>
+                <Flex padding="20px">
+                <Box bg="white" >
+                        <Stack spacing={3}>
                             <Text fontSize="3xl">Donor Information</Text>
                             <Text fontSize="xl">Age</Text>
+                            <div>{loaded.ageList}</div>
                         </Stack>    
-                    </Flex>
                 </Box> 
                 </Flex>
-                <Flex padding="10px">
-                <Box bg="#EBEBEB" height="300px">
-                    <Flex mt="20px" padding="10px"  width="300px">
-                        <Stack spacing={5}>
+                <Flex padding="20px">
+                <Box bg="white">
+                        <Stack spacing={3}>
                             <Text fontSize="3xl">Consent</Text>
                             <Text fontSize="xl">Restrictions</Text>
+                            <div>{loaded.consentList}</div>
                         </Stack>    
-                    </Flex>
                 </Box> 
                 </Flex>
                 </Stack>   
                 
             </div>
     );
+    }
+
   }
 
 
