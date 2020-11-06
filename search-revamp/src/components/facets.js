@@ -1,5 +1,5 @@
 import React from "react";
-import { useFacet } from "./api/facetsApi";
+import { useFacet } from "./API/facetApi";
 import { Checkbox, Flex, Text, Box, Stack, Spinner } from "@chakra-ui/core"
 
 const GetFacets = () => {

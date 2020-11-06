@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\JoeLavagna\\Documents\\Projects\\biobanks.searchRevamp\\API\\API.csproj": {}
+    "C:\\Users\\JoeLavagna\\Documents\\Projects\\test\\biobanks.searchRevamp\\API\\API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\JoeLavagna\\Documents\\Projects\\biobanks.searchRevamp\\API\\API.csproj": {
+    "C:\\Users\\JoeLavagna\\Documents\\Projects\\test\\biobanks.searchRevamp\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\JoeLavagna\\Documents\\Projects\\biobanks.searchRevamp\\API\\API.csproj",
+        "projectUniqueName": "C:\\Users\\JoeLavagna\\Documents\\Projects\\test\\biobanks.searchRevamp\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "C:\\Users\\JoeLavagna\\Documents\\Projects\\biobanks.searchRevamp\\API\\API.csproj",
+        "projectPath": "C:\\Users\\JoeLavagna\\Documents\\Projects\\test\\biobanks.searchRevamp\\API\\API.csproj",
         "packagesPath": "C:\\Users\\JoeLavagna\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\JoeLavagna\\Documents\\Projects\\biobanks.searchRevamp\\API\\obj\\",
+        "outputPath": "C:\\Users\\JoeLavagna\\Documents\\Projects\\test\\biobanks.searchRevamp\\API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\JoeLavagna\\AppData\\Roaming\\NuGet\\NuGet.Config",

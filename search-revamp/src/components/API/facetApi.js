@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 import useSWR from "swr"
 
 const myApi = "https://api20201029163207.azurewebsites.net"
