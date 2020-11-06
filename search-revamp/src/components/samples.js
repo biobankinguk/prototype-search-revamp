@@ -1,20 +1,20 @@
 import React, { Component } from "react";
 import { useDisease } from "./API/diseaseApi";
-import { SimpleGrid, Flex, Heading, Text, Box, Stack } from "@chakra-ui/core"
+import { Spinner, Flex, Heading, Text, Box, Stack } from "@chakra-ui/core"
 
 const GetSamples = () => {
   const res = useDisease()
-  const diseaseTerm = ""
-  const biobank = ""
+  var diseaseTerm = ""
+  var biobank = ""
   const sampleTypeList = []
-  const data = {res, diseaseTerm, biobank, sampleTypeList}
+  
   if (res.isLoading){
     return null
   }
   else {
     {res.diseases.map(item => {
-      item.diseaseTerm = diseaseTerm
-      item.biobank = biobank
+      diseaseTerm = item.diseaseTerm
+      biobank = item.biobank
       for (const sample of item.sampleTypes){
         sampleTypeList.push(
             <div>{sample}</div>
@@ -23,18 +23,31 @@ const GetSamples = () => {
 
       })
   }
+  const data = { diseaseTerm, biobank, sampleTypeList}
+  console.log(data.diseaseTerm)
   return data
   }
 }
 
 
 function Samples() {
+  const loaded = GetSamples()
+  if (loaded == null) {
+        //Render Loading State
+        return (
+          <Flex padding="30px">
+              <Spinner />
+              <Flex marginLeft="10px">Loading Sample Data</Flex>
+          </Flex>  
+      )
+  }
+  else {
     return (
       <Flex padding="30px">
                 <Box bg="#EBEBEB" width="1000px" height="300px" >
                          <Stack spacing={3}>
-                            <Text fontSize="3xl">Sample Details</Text>
-                            <Text fontSize="xl">Sample Type</Text>
+                            <Text fontSize="2xl">{loaded.diseaseTerm}</Text>
+
                         </Stack> 
                         
                     
@@ -42,6 +55,8 @@ function Samples() {
                 </Flex>
       
     );
+  }
+
   }
 
 export default Samples

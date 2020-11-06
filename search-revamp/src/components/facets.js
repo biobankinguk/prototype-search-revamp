@@ -5,7 +5,7 @@ import { Checkbox, Flex, Text, Box, Stack, Spinner } from "@chakra-ui/core"
 const GetFacets = () => {
     const res = useFacet()
     const bodyList = [], sampleList = [], ageList = [], sexList = [], consentList = [];
-    const data = { res, bodyList, sampleList, ageList, sexList, consentList }
+    
     
     if (res.isLoading) {
         return null
@@ -49,6 +49,7 @@ const GetFacets = () => {
             }
         })}}
 
+        const data = { res, bodyList, sampleList, ageList, sexList, consentList }
         return data       
     }
 
