@@ -1,17 +1,13 @@
-import React, { Component, Suspense } from "react";
+import React from "react";
 import { useFacet } from "./api/facetsApi";
-import { Checkbox, Grid, Flex, Heading, Text, Box, Stack, Button, Spinner, MenuItem } from "@chakra-ui/core"
+import { Checkbox, Flex, Text, Box, Stack, Spinner } from "@chakra-ui/core"
 
 const GetFacets = () => {
     const res = useFacet()
-    const bodyList = []
-    const sampleList = []
-    const ageList = []
-    const sexList = []
-    const consentList = []
+    const bodyList = [], sampleList = [], ageList = [], sexList = [], consentList = [];
     const data = { res, bodyList, sampleList, ageList, sexList, consentList }
+    
     if (res.isLoading) {
-
         return null
     }
     else {
@@ -52,14 +48,9 @@ const GetFacets = () => {
                 )
             }
         })}}
-        
-        return data
-            
-        
+
+        return data       
     }
-
-
-
 
 
 const Facets = () => {
@@ -70,14 +61,13 @@ const Facets = () => {
             <Flex padding="30px">
                 <Spinner />
                 <Flex marginLeft="10px">Loading Facet Data</Flex>
-            </Flex>
-            
+            </Flex>  
         )
     }
     else {
         return (
             <div>
-                <Stack spacing={5}>
+                <Stack>
                 <Flex padding="20px">
                 <Box bg="white" >
                          <Stack spacing={3}>
@@ -115,14 +105,4 @@ const Facets = () => {
 
   }
 
-
-export default class FacetsComponent extends Component {
-    render() {
-
-        return (
-            <Flex>
-                <Facets />
-            </Flex>
-        )
-    }
-}
+export default Facets;
