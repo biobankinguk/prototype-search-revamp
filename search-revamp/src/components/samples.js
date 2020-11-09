@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { useDisease } from "./API/diseaseApi";
+import '../samples.css';
 import { Spinner, Flex, Heading, Text, Box, Stack, Grid, Button } from "@chakra-ui/core"
-import Plot from "react-plotly.js"
+
 
 
 const GetSamples = () => {
@@ -57,10 +58,13 @@ function Samples() {
               </Stack> 
             </Box> 
             <Box bg="#F7F5F5" width="1000px" height="150px">
-              <Text padding="20px"fontSize="xl">{loaded.biobank}</Text>
-              <Flex alignItems="right">
-                <Button>Test</Button>
-              </Flex>
+              <Stack isInline className="resource">
+                <Text padding="20px"fontSize="xl">{loaded.biobank}</Text>
+                <Flex direction="right" padding="20px" marginLeft="auto">
+                  <Button>View Resource</Button>
+                </Flex>
+              </Stack>
+
             </Box>
           </Stack>
 
