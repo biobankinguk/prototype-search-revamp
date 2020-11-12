@@ -11,6 +11,7 @@ const GetSamples = () => {
   var biobank = ""
   var donorList = []
   const sampleTypeList = []
+  const associatedDataList = []
   
   if (res.isLoading){
     return null
@@ -22,9 +23,19 @@ const GetSamples = () => {
       for (const sample of item.sampleTypes){
         sampleTypeList.push(
   
-            <Badge fontSize="0.9em" color="white" bg="#858585" fontWeight="regular">{sample}</Badge>
+            <Badge 
+              fontSize="0.9em"
+              color="white" bg="#858585"
+              fontWeight="regular"
+              padding="4px"
+              >{sample}</Badge>
         
         )}
+      for (const associatedData of item.associatedData){
+        associatedDataList.push(
+          <div>{associatedData}</div>
+        )
+      }
       
       for (const donor of item.donor){
         donorList.push(
@@ -32,12 +43,12 @@ const GetSamples = () => {
         )}
       })   
   }
-  const data = { diseaseTerm, biobank, sampleTypeList, donorList}
+  const data = { diseaseTerm, biobank, sampleTypeList, associatedDataList, donorList}
   return data
   }
 }
 
-function DropDown() {
+function DropDown(props) {
   const [show, setShow] = React.useState(false);
   const [buttonText, setButtonText] = React.useState("")
 
@@ -52,7 +63,14 @@ function DropDown() {
       </Button>
       <Collapse mt={5} isOpen={show} >
         <Divider borderColor="black.800" />
-          <Flex marginLeft="20px">Load in data from API</Flex>
+          <Flex marginLeft="20px">
+            <Stack>
+              <Text fontWeight="bold">Associated Data</Text>
+              <Text>{props.loaded.associatedDataList}</Text>
+            </Stack>
+            
+            
+            </Flex>
       </Collapse>
 
     </>
@@ -108,7 +126,7 @@ function Samples() {
                   <Button bg="#4d4d4d" color="white" _hover={{ bg: "#1a1a1a" }}>View Resource</Button>
                 </Flex>
               </Stack>
-            <DropDown />
+            <DropDown loaded={loaded} />
               
 
 
