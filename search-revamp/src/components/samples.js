@@ -50,7 +50,7 @@ const GetSamples = () => {
 
 function DropDown(props) {
   const [show, setShow] = React.useState(false);
-  const [buttonText, setButtonText] = React.useState("")
+  const [buttonToggle, setButtonToggle] = React.useState(true)
 
   const handleToggle = () => {
     setShow(!show);
@@ -59,7 +59,11 @@ function DropDown(props) {
   return (
     <>
     <Button onClick={handleToggle} variant="link" marginLeft="20px">
-        See more details
+    {buttonToggle ? (
+        <a onClick={() => setButtonToggle(false)}> See more details</a>
+      ) : (
+        <a onClick={() => setButtonToggle(true)}> Hide details</a>
+      )}
       </Button>
       <Collapse mt={5} isOpen={show} >
         <Divider borderColor="black.800" />
