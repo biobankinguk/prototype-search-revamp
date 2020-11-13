@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { useDisease } from "./API/diseaseApi";
 import '../samples.css';
 import { Spinner, Flex, Heading, Text, Box, Stack, Badge, Button, Collapse, Divider, Icon } from "@chakra-ui/core"
+import Plot from 'react-plotly.js';
 
 
 
@@ -111,7 +112,22 @@ function Samples() {
               <Stack spacing={3}>
                   <Heading padding="20px" fontSize="2xl">{loaded.diseaseTerm}</Heading>
                   <Text marginLeft="20px">Number of donors</Text>
-              </Stack> 
+                  <Plot id="plot"
+                data={[
+                  {
+                    x: [1, 2, 3],
+                    y: [2, 6, 3],
+                    type: 'scatter',
+                    mode: 'lines+markers',
+                    marker: {color: 'red'},
+                  },
+                  {type: 'bar', x: [1, 2, 3], y: [2, 5, 3]},
+                ]}
+                layout={{width: 400, height: 300, }}
+                
+              /> 
+              </Stack>
+
               <Stack spacing={3}>
                 <Flex padding="20px" marginTop="60px">
                 <Text>Sample types available</Text>
@@ -124,11 +140,11 @@ function Samples() {
                 
                 
               </Stack>
-              <Stack spacing={3} marginLeft="auto" padding="20px">
-                <Button leftIcon="star" variantColor="black" variant="link" size="md">
+              <Stack spacing={3} padding="20px">
+                <Button  marginLeft="auto"  leftIcon="star" variantColor="black" variant="link" size="md">
                 Add to my list 
                 </Button>
-                <Button variantColor="black" variant="link" size="md" marginTop="auto">
+                <Button marginLeft="auto" variantColor="black" variant="link" size="md" marginTop="auto">
                 See other {loaded.diseaseTerm} samples
                 </Button>
               </Stack>
