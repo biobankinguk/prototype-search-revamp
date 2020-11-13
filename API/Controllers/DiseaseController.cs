@@ -19,12 +19,17 @@ namespace API.Controllers
         }
 
         private static readonly string[] associatedData = new[]
-{
+        {
             "Clinical Records", "Cold ischemic time", "Followup records", "Genealogical records", "National registries"
         };
 
+        private static readonly string[] consentRestrictions = new[]
+        {
+            "Use by non-profit orgs", "Use by academic professionals", "Use for non-profit purposes", "Use for research purposes"
+        };
+
         private static readonly string[] sampleTypes = new[]
-{
+        {
             "DNA", "RNA", "Plasma", "Serum", "Tissue", "Whole blood"
         };
 
@@ -55,6 +60,7 @@ namespace API.Controllers
                 DiseaseTerm = "Malignant tumor of breast",
                 Biobank = "Wales cancer bank",
                 AssociatedData = associatedData,
+                Consent = consentRestrictions,
                 SampleTypes = sampleTypes,
                 Donor = donorModels
             };

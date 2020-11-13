@@ -13,6 +13,7 @@ const GetSamples = () => {
   var donorList = []
   const sampleTypeList = []
   const associatedDataList = []
+  const consentList = []
   
   if (res.isLoading){
     return null
@@ -37,6 +38,11 @@ const GetSamples = () => {
           <div>{associatedData}</div>
         )
       }
+      for (const consentRestriction of item.consent){
+        consentList.push(
+          <div>{consentRestriction}</div>
+        )
+      }
       
       for (const donor of item.donor){
         donorList.push(
@@ -44,7 +50,7 @@ const GetSamples = () => {
         )}
       })   
   }
-  const data = { diseaseTerm, biobank, sampleTypeList, associatedDataList, donorList}
+  const data = { diseaseTerm, biobank, sampleTypeList, associatedDataList, donorList, consentList}
   return data
   }
 }
@@ -77,12 +83,16 @@ function DropDown(props) {
       <Collapse mt={5} isOpen={show} marginBottom="20px">
         <Divider borderColor="black.800" />
           <Flex marginLeft="20px">
-            <Stack>
-              <Text fontWeight="bold">Associated Data</Text>
-              <Text>{props.loaded.associatedDataList}</Text>
-            </Stack>
-            
-            
+            <Stack isInline spacing={10}>
+              <Stack>
+                <Text fontWeight="bold">Consent</Text>
+                <Text>{props.loaded.consentList}</Text>
+              </Stack>
+              <Stack>
+                <Text fontWeight="bold">Associated Data</Text>
+                <Text>{props.loaded.associatedDataList}</Text>
+              </Stack>
+            </Stack>          
             </Flex>
       </Collapse>
 
@@ -90,6 +100,38 @@ function DropDown(props) {
   );
 }
 
+function PlotGraph () {
+  var trace1 = {
+    type: 'bar',
+    x: ['Female40', 'Male40', 'Child18'],
+    y: [500, 1000, 300],
+    marker: {
+        color: '#ff8b0f',
+        line: {
+            width: 2.5
+        }
+    }
+  };
+  return (
+    <Plot
+    data= {[trace1]}
+    layout={
+      {
+        width: 400, 
+        height: 300, 
+        paper_bgcolor:'rgba(0,0,0,0)',
+        plot_bgcolor:'rgba(0,0,0,0)',
+        yaxis: {
+          title: {
+            text: 'Number of donors'
+          }
+        }
+      }}
+      
+    
+  /> 
+  )
+}
 
 
 function Samples() {
@@ -112,20 +154,7 @@ function Samples() {
               <Stack spacing={3}>
                   <Heading padding="20px" fontSize="2xl">{loaded.diseaseTerm}</Heading>
                   <Text marginLeft="20px">Number of donors</Text>
-                  <Plot id="plot"
-                data={[
-                  {
-                    x: [1, 2, 3],
-                    y: [2, 6, 3],
-                    type: 'scatter',
-                    mode: 'lines+markers',
-                    marker: {color: 'red'},
-                  },
-                  {type: 'bar', x: [1, 2, 3], y: [2, 5, 3]},
-                ]}
-                layout={{width: 400, height: 300, }}
-                
-              /> 
+                  <PlotGraph />
               </Stack>
 
               <Stack spacing={3}>
@@ -133,9 +162,7 @@ function Samples() {
                 <Text>Sample types available</Text>
                 </Flex>
                 <Flex marginLeft="20px">
-                  <Box width="20px" marginBottom="20px">
                     <Stack isInline>{loaded.sampleTypeList}</Stack>
-                  </Box>
                 </Flex>
                 
                 
@@ -151,7 +178,7 @@ function Samples() {
               </Stack>
 
             </Box> 
-            <Box bg="#F7F5F5" width="1000px" marginBottom="20px" >
+            <Box bg="#F7F5F5" marginBottom="20px" >
               <Stack isInline className="resource">
                 <Text padding="20px"fontSize="xl">{loaded.biobank}</Text>
                 <Flex direction="right" padding="20px" marginLeft="auto">
