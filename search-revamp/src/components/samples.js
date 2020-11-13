@@ -125,9 +125,12 @@ function Samples() {
                 
               </Stack>
               <Stack spacing={3} marginLeft="auto" padding="20px">
-              <Button leftIcon="star" variantColor="black" variant="link" size="md">
-              Add to my list 
-              </Button>
+                <Button leftIcon="star" variantColor="black" variant="link" size="md">
+                Add to my list 
+                </Button>
+                <Button variantColor="black" variant="link" size="md" marginTop="auto">
+                See other {loaded.diseaseTerm} samples
+                </Button>
               </Stack>
               </Stack>
 
