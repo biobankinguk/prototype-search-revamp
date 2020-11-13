@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { useDisease } from "./API/diseaseApi";
 import '../samples.css';
-import { Spinner, Flex, Heading, Text, Box, Stack, Badge, Button, Collapse, Divider } from "@chakra-ui/core"
+import { Spinner, Flex, Heading, Text, Box, Stack, Badge, Button, Collapse, Divider, Icon } from "@chakra-ui/core"
 
 
 
@@ -58,14 +58,22 @@ function DropDown(props) {
 
   return (
     <>
-    <Button onClick={handleToggle} variant="link" marginLeft="20px">
+    <Button onClick={handleToggle} variant="link" marginLeft="20px" color="black" marginBottom="20px">
     {buttonToggle ? (
-        <a onClick={() => setButtonToggle(false)}> See more details</a>
+      <Flex>
+        <Text onClick={() => setButtonToggle(false)}> See more details</Text>
+        <Icon marginTop="5px" marginLeft="5px" name="arrow-down"></Icon>
+      </Flex>
+
       ) : (
-        <a onClick={() => setButtonToggle(true)}> Hide details</a>
+        <Flex>
+            <Text onClick={() => setButtonToggle(true)}> Hide details</Text>
+            <Icon marginTop="5px" marginLeft="5px" name="arrow-up"></Icon>
+        </Flex>
+        
       )}
       </Button>
-      <Collapse mt={5} isOpen={show} >
+      <Collapse mt={5} isOpen={show} marginBottom="20px">
         <Divider borderColor="black.800" />
           <Flex marginLeft="20px">
             <Stack>
@@ -80,6 +88,7 @@ function DropDown(props) {
     </>
   );
 }
+
 
 
 function Samples() {
@@ -97,7 +106,7 @@ function Samples() {
     return (
       <Flex padding="30px">
           <Stack spacing={0}>
-            <Box bg="#EBEBEB" width="1000px" height="300px" >
+            <Box bg="#EBEBEB">
               <Stack isInline>
               <Stack spacing={3}>
                   <Heading padding="20px" fontSize="2xl">{loaded.diseaseTerm}</Heading>
@@ -108,7 +117,7 @@ function Samples() {
                 <Text>Sample types available</Text>
                 </Flex>
                 <Flex marginLeft="20px">
-                  <Box width="20px">
+                  <Box width="20px" marginBottom="20px">
                     <Stack isInline>{loaded.sampleTypeList}</Stack>
                   </Box>
                 </Flex>
@@ -123,15 +132,19 @@ function Samples() {
               </Stack>
 
             </Box> 
-            <Box bg="#F7F5F5" width="1000px" height="150px">
+            <Box bg="#F7F5F5" width="1000px" marginBottom="20px" >
               <Stack isInline className="resource">
                 <Text padding="20px"fontSize="xl">{loaded.biobank}</Text>
                 <Flex direction="right" padding="20px" marginLeft="auto">
                   <Button bg="#4d4d4d" color="white" _hover={{ bg: "#1a1a1a" }}>View Resource</Button>
                 </Flex>
               </Stack>
-            <DropDown loaded={loaded} />
               
+                <DropDown loaded={loaded}/>
+             
+                
+            
+            
 
 
 
