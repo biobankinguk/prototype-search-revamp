@@ -100,16 +100,22 @@ function DropDown(props) {
   );
 }
 
-function PlotGraph () {
-  //Pull in data from API and 
+//Used for alternating bar colours in plotly
+function fill(N, func) {
+  var empty = Array.apply(null, Array(N));
+  return empty.map(func);
+}
+
+function PlotGraph (props) {
   var donorData = {
     type: 'bar',
-    x: ['Female40', 'Male40', 'Child18'],
-    y: [500, 1000, 300],
+    x: props.loaded.donorList.map((donor) => donor.sex.charAt(0) + " " + donor.age),
+    y: props.loaded.donorList.map((donor) => donor.donorCount),
     marker: {
-        color: '#ff8b0f',
+      color: fill(20, (_, i) => (i % 2) ? '#f2f1f1' : '#cdcccc'),
         line: {
-            width: 2.5
+            width: 1,
+            color: '#b0b2ae'
         }
     }
   };
@@ -155,7 +161,7 @@ function Samples() {
               <Stack spacing={3}>
                   <Heading padding="20px" fontSize="2xl">{loaded.diseaseTerm}</Heading>
                   <Text marginLeft="20px">Number of donors</Text>
-                  <PlotGraph />
+                  <PlotGraph loaded={loaded}/>
               </Stack>
 
               <Stack spacing={3}>
@@ -186,15 +192,7 @@ function Samples() {
                   <Button bg="#4d4d4d" color="white" _hover={{ bg: "#1a1a1a" }}>View Resource</Button>
                 </Flex>
               </Stack>
-              
                 <DropDown loaded={loaded}/>
-             
-                
-            
-            
-
-
-
             </Box>
           </Stack>
 
