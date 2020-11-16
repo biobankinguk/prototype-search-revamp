@@ -34,7 +34,7 @@ const Header = props => {
         mt={{ base: 4, md: 0 }}
       >
       <InputGroup size="lg">
-          <Input pr="20rem" placeholder="Search for samples"/>
+          <Input borderRadius="1px" pr="20rem" placeholder="Search for samples"/>
           <InputRightElement width="5rem">
           <Button borderRadius="1px" bg="#808080" variant="solid" color="white" _hover={{ bg: "#4d4d4d" }}  size="lg">
               Search

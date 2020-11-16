@@ -27,6 +27,8 @@ const GetSamples = () => {
   
             <Badge 
               fontSize="0.9em"
+              borderRadius="5px"
+              
               color="white" bg="#858585"
               fontWeight="regular"
               padding="4px"
