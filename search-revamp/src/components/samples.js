@@ -195,7 +195,7 @@ function Samples() {
               <Stack isInline className="resource">
                 <Text padding="20px"fontSize="xl">{loaded.biobank}</Text>
                 <Flex direction="right" padding="20px" marginLeft="auto">
-                  <Button bg="#4d4d4d" color="white" _hover={{ bg: "#1a1a1a" }}>View Resource</Button>
+                  <Button borderRadius="1px" bg="#4d4d4d" color="white" _hover={{ bg: "#1a1a1a" }}>View Resource</Button>
                 </Flex>
               </Stack>
                 <DropDown loaded={loaded}/>

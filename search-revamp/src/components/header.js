@@ -36,17 +36,17 @@ const Header = props => {
       <InputGroup size="lg">
           <Input pr="20rem" placeholder="Search for samples"/>
           <InputRightElement width="5rem">
-          <Button bg="#808080" variant="solid" color="white" _hover={{ bg: "#4d4d4d" }}  size="lg">
+          <Button borderRadius="1px" bg="#808080" variant="solid" color="white" _hover={{ bg: "#4d4d4d" }}  size="lg">
               Search
           </Button>
           </InputRightElement>
       </InputGroup>
     </Box>
     <ButtonGroup spacing={4} ml="1.5rem">
-          <Button leftIcon="star" variantColor="black" variant="outline" size="lg">
+          <Button borderRadius="1px" leftIcon="star" variantColor="black" variant="outline" size="lg">
             My List
           </Button>
-          <Button leftIcon="arrow-forward" variantColor="black" variant="outline" size="lg">
+          <Button borderRadius="1px" leftIcon="arrow-forward" variantColor="black" variant="outline" size="lg">
             My Account
           </Button>
         </ButtonGroup>
