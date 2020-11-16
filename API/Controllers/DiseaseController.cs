@@ -36,13 +36,19 @@ namespace API.Controllers
         private static readonly DonorModel donorModel1 = new DonorModel
         {
             Sex = "Female",
-            Age = "Adult (> 40 years)",
+            Age = "> 40",
             DonorCount = "101-500"
         };
         private static readonly DonorModel donorModel2 = new DonorModel
         {
             Sex = "Male",
-            Age = "Adult (> 40 years)",
+            Age = "> 40",
+            DonorCount = "500-1000"
+        };
+        private static readonly DonorModel donorModel3 = new DonorModel
+        {
+            Sex = "Male",
+            Age = "18",
             DonorCount = "500-1000"
         };
 
@@ -54,6 +60,7 @@ namespace API.Controllers
             var donorModels = new List<DonorModel>();
             donorModels.Add(donorModel1);
             donorModels.Add(donorModel2);
+            donorModels.Add(donorModel3);
 
             var model = new DiseaseModel
             {

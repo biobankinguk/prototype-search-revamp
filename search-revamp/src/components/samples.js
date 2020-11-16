@@ -101,7 +101,8 @@ function DropDown(props) {
 }
 
 function PlotGraph () {
-  var trace1 = {
+  //Pull in data from API and 
+  var donorData = {
     type: 'bar',
     x: ['Female40', 'Male40', 'Child18'],
     y: [500, 1000, 300],
@@ -112,24 +113,24 @@ function PlotGraph () {
         }
     }
   };
+
+  var layoutSpec = {
+    width: 400, 
+    height: 300, 
+    paper_bgcolor:'rgba(0,0,0,0)',
+    plot_bgcolor:'rgba(0,0,0,0)',
+    yaxis: {
+      title: {
+        text: 'Number of donors'
+      }
+    }
+  }
+  
   return (
     <Plot
-    data= {[trace1]}
-    layout={
-      {
-        width: 400, 
-        height: 300, 
-        paper_bgcolor:'rgba(0,0,0,0)',
-        plot_bgcolor:'rgba(0,0,0,0)',
-        yaxis: {
-          title: {
-            text: 'Number of donors'
-          }
-        }
-      }}
-      
-    
-  /> 
+    data= {[donorData]}
+    layout={layoutSpec}
+    /> 
   )
 }
 
