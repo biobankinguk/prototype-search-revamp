@@ -19,26 +19,43 @@ namespace API.Controllers
         }
 
         private static readonly string[] associatedData = new[]
-{
+        {
             "Clinical Records", "Cold ischemic time", "Followup records", "Genealogical records", "National registries"
         };
 
+        private static readonly string[] consentRestrictions = new[]
+        {
+            "Use by non-profit orgs", "Use by academic professionals", "Use for non-profit purposes", "Use for research purposes"
+        };
+
         private static readonly string[] sampleTypes = new[]
-{
+        {
             "DNA", "RNA", "Plasma", "Serum", "Tissue", "Whole blood"
         };
 
         private static readonly DonorModel donorModel1 = new DonorModel
         {
             Sex = "Female",
-            Age = "Adult (> 40 years)",
-            DonorCount = "101-500"
+            Age = "> 40",
+            DonorCount = "250"
         };
         private static readonly DonorModel donorModel2 = new DonorModel
         {
             Sex = "Male",
-            Age = "Adult (> 40 years)",
-            DonorCount = "500-1000"
+            Age = "> 40",
+            DonorCount = "750"
+        };
+        private static readonly DonorModel donorModel3 = new DonorModel
+        {
+            Sex = "Male",
+            Age = "18-40",
+            DonorCount = "1000"
+        };
+        private static readonly DonorModel donorModel4 = new DonorModel
+        {
+            Sex = "Female",
+            Age = "18-40",
+            DonorCount = "750"
         };
 
 
@@ -49,12 +66,15 @@ namespace API.Controllers
             var donorModels = new List<DonorModel>();
             donorModels.Add(donorModel1);
             donorModels.Add(donorModel2);
+            donorModels.Add(donorModel3);
+            donorModels.Add(donorModel4);
 
             var model = new DiseaseModel
             {
                 DiseaseTerm = "Malignant tumor of breast",
                 Biobank = "Wales cancer bank",
                 AssociatedData = associatedData,
+                Consent = consentRestrictions,
                 SampleTypes = sampleTypes,
                 Donor = donorModels
             };

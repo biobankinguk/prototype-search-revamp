@@ -9,6 +9,7 @@ namespace API
         public string DiseaseTerm { get; set; }
         public string Biobank { get; set; }
         public string[] AssociatedData { get; set; } 
+        public string[] Consent { get; set; }
         public string[] SampleTypes { get; set; }
         public List<DonorModel> Donor { get; set; }
 
