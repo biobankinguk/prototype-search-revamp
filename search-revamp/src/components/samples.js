@@ -121,6 +121,8 @@ function PlotGraph (props) {
   };
 
   var layoutSpec = {
+    //Removes excessive std margins
+    margin: { l: 100, r: 50, b: 100, t: 25, pad: 4 },
     width: 400, 
     height: 300, 
     paper_bgcolor:'rgba(0,0,0,0)',
