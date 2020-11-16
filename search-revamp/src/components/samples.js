@@ -129,7 +129,11 @@ function PlotGraph (props) {
       title: {
         text: 'Number of donors'
       }
+    },
+    xaxis: {
+      tickangle: -45
     }
+    
   }
   
   return (
