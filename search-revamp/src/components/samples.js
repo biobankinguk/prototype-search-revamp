@@ -70,14 +70,19 @@ function DropDown(props) {
     <Button onClick={handleToggle} variant="link" marginLeft="20px" color="black" marginBottom="20px">
     {buttonToggle ? (
       <Flex>
-        <Text onClick={() => setButtonToggle(false)}> See more details</Text>
-        <Icon marginTop="5px" marginLeft="5px" name="arrow-down"></Icon>
+        <Text onClick={() => setButtonToggle(false)}>
+          See more details
+          <Icon marginLeft="5px" name="arrow-down"></Icon>
+        </Text>
+        
       </Flex>
 
       ) : (
         <Flex>
-            <Text onClick={() => setButtonToggle(true)}> Hide details</Text>
-            <Icon marginTop="5px" marginLeft="5px" name="arrow-up"></Icon>
+            <Text onClick={() => setButtonToggle(true)}>
+               Hide details
+               <Icon marginLeft="5px" name="arrow-up"></Icon>
+            </Text>
         </Flex>
         
       )}
